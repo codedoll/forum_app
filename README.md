@@ -6,7 +6,7 @@ Wireframe for forum app
 ------------------------------
 ![Wireframe](https://github.com/codedoll/forum_app/blob/master/Wireframe_onepager.png?raw=true)
 
-Model-View-Presenter (MVC)
+Model-View-Presenter (MVP)
 ------------------------------
 **Models**
 
