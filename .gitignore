@@ -21,4 +21,5 @@ Thumbs.db
 
 # GA Bootcamp #
 ######################
-node_modules
+node_module/
+node_modules/
