@@ -1,11 +1,10 @@
 ## **Unit 2 Project: Forum App** ##
 --------
-
+![Forum index image](https://github.com/codedoll/forum_app/blob/master/forum_index.JPG?raw=true)
 
 Wireframe for forum app
 ------------------------------
-![enter image description here](https://github.com/codedoll/forum_app/blob/master/forum_index.JPG?raw=true)
-
+![Wireframe](https://github.com/codedoll/forum_app/blob/master/Wireframe_onepager.png?raw=true)
 
 Model-View-Presenter (MVC)
 ------------------------------
