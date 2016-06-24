@@ -19,6 +19,11 @@ Model-View-Presenter (MVP)
  - Comments
 	 - comment : String
 
+Flowchart for forum app
+------------------------------
+![Wireframe](https://github.com/codedoll/forum_app/blob/master/forumapp.png?raw=true)
+
+
 User Stories
 ------------
  - User must be able to log in with a username
