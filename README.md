@@ -31,6 +31,12 @@ User Stories
  - User can optionally vote on topics
  - The user interface must be clean and visually appealing
  
+
+Advanced features
+------------
+- Cipher option for spoilers
+- Username and password authentication
+- Responsive website that looks appealing on all browsers and devices
  
 Technologies used
 --------------------------------
