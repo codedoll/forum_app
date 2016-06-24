@@ -34,10 +34,12 @@ User Stories
 
 Advanced features
 ------------
-- Cipher option for spoilers
 - Username and password authentication
 - Responsive website that looks appealing on all browsers and devices
+- Cipher option for spoilers
  
+
+
 Technologies used
 --------------------------------
 
