@@ -4,12 +4,14 @@
   "description": "-------- ![Forum index image](https://github.com/codedoll/forum_app/blob/master/forum_index.JPG?raw=true)",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "ejs": "^2.4.2",
     "express": "^4.14.0",
     "express-session": "^1.13.0",
     "method-override": "^2.3.6",
@@ -22,5 +24,6 @@
   "bugs": {
     "url": "https://github.com/codedoll/forum_app/issues"
   },
-  "homepage": "https://github.com/codedoll/forum_app#readme"
+  "homepage": "https://github.com/codedoll/forum_app#readme",
+  "devDependencies": {}
 }
