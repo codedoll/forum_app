@@ -1,8 +1,8 @@
-## **Forum App** ##
+## **Unit 2 Project: Forum App** ##
 --------
 
 
-Wireframe for forum project
+Wireframe for forum app
 ------------------------------
 ![enter image description here](https://github.com/codedoll/forum_app/blob/master/forum_index.JPG?raw=true)
 
