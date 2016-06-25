@@ -39,6 +39,7 @@ User Stories
 Advanced features
 ------------
 - Username and password authentication
+- User's access is limited based on his session credentials and database login
 - Responsive website that looks appealing on all browsers and devices
 - Cipher option for spoilers
  
