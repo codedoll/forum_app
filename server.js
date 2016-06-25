@@ -26,7 +26,22 @@ app.use ('/user', userController);
 
 
 app.get('/', function(req,res){
+	if (req.session.username !== undefined) {
+	res.redirect("/" + req.session.username)
+	}
+	else {
+	res.redirect("/user/login")
+	}
+})
 
+
+app.get('/:id', function(req, res){
+	if (req.session.username !== undefined) {
+	res.send("hi " + req.session.username + " your session is logged")
+	}
+	else {
+	res.redirect("/user/login")
+	}
 })
 
 
