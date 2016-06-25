@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 app.use ('/user', userController);
 
 
+
 app.get('/', function(req,res){
 	if (req.session.username !== undefined) {
 	res.redirect("/" + req.session.username)
@@ -35,14 +36,16 @@ app.get('/', function(req,res){
 })
 
 
+
 app.get('/:id', function(req, res){
 	if (req.session.username !== undefined) {
-	res.send("hi " + req.session.username + " your session is logged")
+	res.send("hi " + req.session.username + " your session is logged. you tried to log in ")
 	}
 	else {
 	res.redirect("/user/login")
 	}
 })
+
 
 
 app.get('*', function(req, res){
