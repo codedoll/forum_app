@@ -45,6 +45,10 @@ app.get('/:id', function(req, res){
 })
 
 
+app.get('*', function(req, res){
+  res.send('404 error at / route server.js');
+});
+
 app.get('/:id', function(req,res){
 
 })
