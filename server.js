@@ -21,46 +21,43 @@ var userController = require('./controllers/user_controller.js')
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-
-app.use ('/user', userController);
-
+app.use('/user', userController);
 
 
-app.get('/', function(req,res){
-	if (req.session.username !== undefined) {
-	res.redirect("/" + req.session.username)
-	}
-	else {
-	res.redirect("/user/login")
-	}
+
+app.get('/', function(req, res) {
+    if (req.session.username !== undefined) {
+        res.redirect("/" + req.session.username)
+    } else {
+        res.redirect("/user/login")
+    }
 })
 
 
-
-app.get('/:id', function(req, res){
-	if (req.session.username !== undefined) {
-	res.send("hi " + req.session.username + " your session is logged. you tried to log in ")
-	}
-	else {
-	res.redirect("/user/login")
-	}
+app.get('/:id', function(req, res) {
+    if (req.session.username !== undefined) {
+        if (req.session.username === req.params.id) {
+            res.send("hi " + req.session.username + " your session is logged")
+        } else {
+            res.redirect("/")
+        }
+    } else {
+        res.redirect("/user/login")
+    }
 })
 
 
-
-app.get('*', function(req, res){
-  res.send('404 error at / route server.js');
+app.get('/:id/logout', function(req, res) {
+    req.session.destroy();
+    res.send("logout success!");
 });
 
-app.get('/:id', function(req,res){
 
-})
-
-mongoose.connection.once('open', function(){
+mongoose.connection.once('open', function() {
     console.log('connected to mongod');
 })
 
 
-app.listen(3000, function(){
+app.listen(3000, function() {
     console.log('listening');
 })
