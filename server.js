@@ -29,8 +29,7 @@ var userController = require('./controllers/user_controller.js')
 var forumController = require('./controllers/forum_controller.js')
 var validate = require("./userValidate");
 
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+ app.use(bodyParser.json());
 
 app.use('/user', userController);
 
@@ -94,11 +93,11 @@ app.post('/register', function(req, res) {
 
 
 app.get('/login', function(req, res) {
-    req.session.username = req.body.username
-    res.render("user/user_login.ejs");
+
+        res.render("user/user_login.ejs")
+
+
 })
-
-
 
 
 
@@ -107,8 +106,14 @@ app.post('/login', function(req, res) {
         if (foundUser === null) {
             res.send("wrong login")
         } else if (foundUser.username === req.body.username) {
-            req.session.username = req.body.username;
-            res.redirect("/")
+            if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+
+                req.session.username = req.body.username;
+                res.redirect("/")
+            }
+            else {
+                res.send("wrong password")
+            }
         }
     })
 })
@@ -116,7 +121,7 @@ app.post('/login', function(req, res) {
 
 app.get('/logout', function(req, res) {
     req.session.destroy();
-    res.send("logout success!");
+    res.redirect("/login");
 });
 
 
