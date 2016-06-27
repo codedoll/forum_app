@@ -3,6 +3,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
+var bcrypt = require('bcrypt');
+
 var app = express();
 
 var User = require('./models/user_model.js')
@@ -52,6 +54,8 @@ app.post('/', validate, function(req, res) {
 
 app.get('/register', function(req, res) {
     if (req.session.username !== undefined) {
+                req.session.username = req.body.username
+
         res.redirect("/");
     } else {
         User.create(req.body, function(err, data) {
@@ -59,6 +63,34 @@ app.get('/register', function(req, res) {
         })
     }
 })
+
+
+// router.post('/', function(req, res){
+//     req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+//     User.create(req.body, function(err, data){
+//         res.redirect('/');
+//     })
+// });
+
+// router.post('/register', function(req, res) {
+//         req.session.username = req.body.username
+//         User.create(req.body, function(err, data){        
+//             res.send(data)
+//         // req.session.username = req.body.username;
+//         // res.redirect("/")
+//     })
+// })
+
+app.post('/register', function(req, res) {
+        req.session.username = req.body.username
+        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+        console.log(req.body)
+        User.create(req.body, function(err, data) {
+                   res.redirect("/")
+                // req.session.username = req.body.username;
+                // res.redirect("/")
+        })
+    })
 
 
 app.get('/login', function(req, res) {

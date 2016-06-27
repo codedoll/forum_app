@@ -62,6 +62,8 @@ router.post('/post', validate, function(req, res) {
         Forum.create(req.body, function(err, forumData) {
             userData.topics.push(forumData.id)
             userData.save(function(err) {
+                req.session.username = req.body.username
+
                 var noDash = req.body.title
                 var addDash = noDash.replace(/\s+/g, '_')
                 res.redirect('/forum/topics/' + addDash)

@@ -3,6 +3,8 @@
 </head>
 
 <body>
+        <% include ../partials/navbar %>
+
 <a href="forum/post">Post a new topic</a>
 <br>
     Your topics are:
@@ -11,7 +13,7 @@
         <br>
         <% var noDash = userData[i].title %>
         <% var addDash = noDash.replace(/\s+/g, '_') %>
-        <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a>
+        <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a> by <%= userData[i].username %>
      <% } %>
 </body>
 
