@@ -28,27 +28,23 @@ router.get('/post', function(req, res) {
     })
 })
 
+
 ////POSTING A NEW TOPIC////
 router.post('/post', function(req, res) {
     var newTopic = new Forum(req.body);
     var sessionName = req.session.username;
+
     User.findOne({ 'username': sessionName }, function(err, userData) {
+    
         Forum.create(req.body, function(err, forumData) {
-
-
             userData.topics.push(forumData.id)
             userData.save(function(err) {
-
                 res.redirect('/')
             })
+    
         })
-
-
     })
 })
-
-
-
 
 
 
@@ -59,10 +55,11 @@ router.get('/topics/:id', function(req, res) {
     var address = getID.replace(/_/g, ' ')
     var sessionName = req.session.username
 
-
-    Forum.find({ "title": address }, function(err, userData) {
-        res.send(userData)
-        console.log(findTopic.topics);
+    Forum.findOne({ "title": address }, function(err, userData) {
+        // res.send(userData)
+        res.render("./forum/single_topic.ejs", {
+            userData : userData
+        })
 
     })
 

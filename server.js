@@ -9,7 +9,7 @@ var Forum = require('./models/forum_model.js')
 
 
 mongoose.connect('mongodb://localhost:27017/forumProj');
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 app.use(session({
@@ -31,14 +31,7 @@ app.use('/user', userController);
 
 app.use('/forum', forumController);
 
-// app.get('/register', function(req, res) {
-//     if (req.session.username !== undefined) {
-//         res.redirect("/");
-//     } else {
-        
-//             res.render("user/user_register.ejs");
-//     }
-// })
+
 
 app.get('/', function(req, res) {
     if (req.session.username !== undefined) {
@@ -48,13 +41,15 @@ app.get('/', function(req, res) {
     }
 })
 
+
 app.post('/', function(req, res) {
-        req.session.username = req.body.username
-        User.create(req.body, function(err, data){        
-            res.redirect("/")
+    req.session.username = req.body.username
+    User.create(req.body, function(err, data) {
+        res.redirect("/")
 
     })
 })
+
 
 app.get('/register', function(req, res) {
     if (req.session.username !== undefined) {
@@ -68,29 +63,20 @@ app.get('/register', function(req, res) {
 
 
 app.get('/login', function(req, res) {
-            req.session.username = req.body.username
-
-    // if (req.session.username !== undefined) {
-    //     User.findOne({ username: req.body.username }, function(err, foundUser) {
-    //         req.session.username = foundUser.username;
-    //         res.redirect("/")
-    //     })
-
-    // } else {
-        res.render("user/user_login.ejs");
-    // }
+    req.session.username = req.body.username
+    res.render("user/user_login.ejs");
 })
 
 
 app.get('/:id', function(req, res) {
     if (req.session.username !== undefined) {
         if (req.session.username === req.params.id) {
-        User.findOne({username: req.params.id }, function(err, foundUser) {
-        res.render('index.ejs', {
-                username : req.session.username,
-                foundUser : foundUser
+            User.findOne({ username: req.params.id }, function(err, foundUser) {
+                res.render('index.ejs', {
+                    username: req.session.username,
+                    foundUser: foundUser
+                })
             })
-        })
         } else {
             res.redirect("/")
         }
@@ -112,12 +98,12 @@ app.post('/login', function(req, res) {
 })
 
 
-
-
 app.get('/:id/logout', function(req, res) {
     req.session.destroy();
     res.send("logout success!");
 });
+
+
 
 
 mongoose.connection.once('open', function() {
