@@ -44,8 +44,8 @@ router.post('/', function(req, res) {
 
 router.get('/post', validate, function(req, res) {
     var sessionName = req.session.username;
-    var dateNow = moment().format();
-    res.render("./forum/post_forum.ejs", {
+ var dateNow = moment().format("YYYY-MM-DD HH:mm");
+     res.render("./forum/post_forum.ejs", {
         sessionName: sessionName,
         dateNow: dateNow
     })
@@ -85,11 +85,9 @@ router.get('/topics/:id', validate, function(req, res) {
         var topicID = userData.id
 
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
-            var dateNow = moment().format();
-            var fromNow = moment().fromNow();
+            var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
             res.render("./forum/single_topic.ejs", {
-                fromNow: fromNow,
                 dateNow: dateNow,
                 sessionName: req.session.username,
                 userData: userData,

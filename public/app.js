@@ -5,12 +5,15 @@ $(function() {
 
 var forumL = $('.forumDate')
 for (var i = 0; i < forumL.length; i++) {
-	// console.log( $(forumL[i]).html() );
+
+ // var dateNow = moment().format("YYYY-MM-DD HH:mm");
+
+
 	var getDatePosted = $(forumL[i]).html();
-	var getRelativeTime = getDatePosted.substring(0, 10)
-	var showRelativeTime = moment(getRelativeTime, "YYYY-MM-DD").fromNow()
+	var showDatePretty = moment(getDatePosted, "YYYY-MM-DD HH:mm").format("MM-DD-YY HH:mm")
+	var showRelativeTime = moment(getDatePosted, "YYYY-MM-DD HH:mm").fromNow()
 	
-	$(forumL[i]).html(showRelativeTime)
+	$(forumL[i]).html(`${showRelativeTime}`)
     // console.log(forumL[i])
 
 }
