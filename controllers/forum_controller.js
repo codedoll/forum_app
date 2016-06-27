@@ -7,13 +7,12 @@ var moment = require('moment');
 var User = require('../models/user_model.js')
 var Forum = require('../models/forum_model.js')
 var Comment = require('../models/comment_model.js')
-
 var validate = require("../userValidate");
 
+var sessionName = req.session.username;
+var dateNow = moment().format();
 
 router.get('/', validate, function(req, res) {
-    var sessionName = req.session.username;
-
     Forum.find({ "username": req.session.username }, function(err, userData) {
         res.render("./forum/all_topics.ejs", {
             userData: userData
@@ -25,7 +24,6 @@ router.get('/', validate, function(req, res) {
 
 router.post('/', function(req, res) {
     var newComment = new Comment(req.body);
-    var sessionName = req.session.username;
 
     Forum.findOne({ '_id': req.body.forumID }, function(err, forumData) {
         console.log(forumData);
@@ -43,8 +41,7 @@ router.post('/', function(req, res) {
 
 
 router.get('/post', validate, function(req, res) {
-    var sessionName = req.session.username;
-    var dateNow = moment().format();
+
     res.render("./forum/post_forum.ejs", {
         sessionName: sessionName,
         dateNow: dateNow
@@ -55,7 +52,6 @@ router.get('/post', validate, function(req, res) {
 ////POSTING A NEW TOPIC////
 router.post('/post', validate, function(req, res) {
     var newTopic = new Forum(req.body);
-    var sessionName = req.session.username;
 
     User.findOne({ 'username': sessionName }, function(err, userData) {
 
@@ -75,7 +71,6 @@ router.post('/post', validate, function(req, res) {
 
 //SINGLE TOPICS
 router.get('/topics/:id', validate, function(req, res) {
-    var sessionName = req.session.username
     var getID = req.params.id
     var address = getID.replace(/_/g, ' ')
 
