@@ -1,12 +1,10 @@
         <% include ../partials/head %>
 <body>
-
-    Title:
+<button><a href="../logout">logout</a></button>
+<br>    Title:
     <%= userData.title %>
         <br> Body:
         <%= userData.forumText %>
-            topicID:
-            <%= userData.id %>
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">
                     <input type="hidden" name="forumID" value="<%= userData.id %>">
