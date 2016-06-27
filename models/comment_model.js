@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 
 var commentSchema = mongoose.Schema({
-    commentText: String,
     username: String,
-    title: String,
-    date: Date
-}, { strict: true})
+    forumID: String,
+    forumDate: String,
+    commentText: String
+}, { strict : true })
 
 var Comment = mongoose.model('Comment', commentSchema);
 

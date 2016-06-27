@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var session = require('express-session');
+var moment = require('moment');
 var app = express();
 
 var User = require('./models/user_model.js')
@@ -11,6 +12,7 @@ var Forum = require('./models/forum_model.js')
 mongoose.connect('mongodb://localhost:27017/forumProj');
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// app.set('views', path.join(__dirname, 'packages/Module1/views'));
 
 app.use(session({
     secret: "beagle",
@@ -23,6 +25,7 @@ app.use(express.static('public'));
 
 var userController = require('./controllers/user_controller.js')
 var forumController = require('./controllers/forum_controller.js')
+var validate = require("./userValidate");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -31,18 +34,14 @@ app.use('/user', userController);
 
 app.use('/forum', forumController);
 
-
-
-app.get('/', function(req, res) {
-    if (req.session.username !== undefined) {
+app.get('/', validate, function(req, res) {
         res.redirect("/" + req.session.username)
-    } else {
-        res.redirect("/login")
-    }
+
 })
 
 
-app.post('/', function(req, res) {
+
+app.post('/', validate, function(req, res) {
     req.session.username = req.body.username
     User.create(req.body, function(err, data) {
         res.redirect("/")
@@ -68,21 +67,15 @@ app.get('/login', function(req, res) {
 })
 
 
-app.get('/:id', function(req, res) {
-    if (req.session.username !== undefined) {
-        if (req.session.username === req.params.id) {
+app.get('/:id', validate, function(req, res) {
+    if (req.session.username === req.params.id) {
             User.findOne({ username: req.params.id }, function(err, foundUser) {
                 res.render('index.ejs', {
                     username: req.session.username,
                     foundUser: foundUser
                 })
             })
-        } else {
-            res.redirect("/")
-        }
-    } else {
-        res.redirect("/login")
-    }
+}
 })
 
 
