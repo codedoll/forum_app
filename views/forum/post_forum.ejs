@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+
+<style type="text/css">
+	p { white-space: pre; }
+</style>
+	<title></title>
+</head>
+<body>
+
+<html>
+    <body>
+        <h1>Post forum</h1>
+Your session name is <%= sessionName %>
+        <form action="/forum/post" method="POST">
+            <input type="text" name="title" placeholder=""/>
+            <br/>
+            <input type="hidden" name="username" value="<%= sessionName %>">
+            <br/>
+
+            <textarea name="forumText"/></textarea>
+
+            <input type="submit" value="submit"/>
+        </form>
+
+    </body>
+</html>
+
+</body>
+</html>

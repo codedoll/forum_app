@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <title></title>
+</head>
+
+<body>
+    Your topics are:
+
+<!-- addDash = noDash.replace(/-/g, ' ') -->
+<br>
+
+<% for (var i = 0; i <  userData.length; i++) { %>
+		<br>
+		<% var noDash = userData[i].title %>
+		<% var addDash = noDash.replace(/\s+/g, '_') %>
+
+	   <a href="forum/topics/<%= addDash %>"> <%= userData[i].title %> </a>
+<% } %>
+</body>
+
+</html>

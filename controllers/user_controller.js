@@ -4,7 +4,7 @@ var router = express.Router();
 var mongoose = require('mongoose')
 
 var User = require('../models/user_model.js')
-
+var Forum = require('../models/forum_model.js')
 
 router.get('/register', function(req, res) {
     if (req.session.username !== undefined) {
@@ -16,21 +16,10 @@ router.get('/register', function(req, res) {
     }
 })
 
-router.get('/login', function(req, res) {
-    if (req.session.username !== undefined) {
-        User.findOne({ username: req.body.username }, function(err, foundUser) {
-            req.session.username = foundUser.username;
-            res.redirect("/")
 
-        })
-
-    } else {
-        res.render("./user/user_login.ejs");
-    }
-
-})
 
 router.post('/register', function(req, res) {
+        req.session.username = req.body.username
         User.create(req.body, function(err, data){        
             res.send(data)
         // req.session.username = req.body.username;
