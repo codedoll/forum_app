@@ -16,7 +16,7 @@
                 </form>
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
-                            <br> by <span class="commentAuthor"><%= commentData[i].username %></span>, <%= commentData[i].commentDate %>
+                            <br> by <span class="commentAuthor"><%= commentData[i].username %></span>,  <span class = "commentDate"><%= commentData[i].commentDate %></span>
                              <br>
                             <%= commentData[i].commentText %>
                         <% } %>

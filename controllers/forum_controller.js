@@ -86,7 +86,7 @@ router.get('/topics/:id', validate, function(req, res) {
 
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format();
-            var fromNow = moment().startOf('hour').fromNow();
+            var fromNow = moment().fromNow();
 
             res.render("./forum/single_topic.ejs", {
                 fromNow: fromNow,

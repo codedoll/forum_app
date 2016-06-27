@@ -6,15 +6,23 @@
     <body>
         <h1>Post forum</h1>
 
-Your session name is <%= sessionName %>
+You are logged in as <%= sessionName %>
         <form action="/forum/post" method="POST">
-            <input type="text" name="title" placeholder=""/>
+          <fieldset class="form-group">
+            <label>Post title</label>
+            <input type="text" name="title" placeholder="" class="form-control"/>
             <br/>
-            <input type="hidden" name="username" value="<%= sessionName %>">
+            
+            <input type="hidden" name="username" value="<%= sessionName %>" class = "form-control">
             <br/>
-            <input type="hidden" name="forumDate" value="<%= dateNow %>">
-            <textarea name="forumText"/></textarea>
 
+            <input type="text" name="forumDate" value="<%= dateNow %>" class = "form-control">
+             <br/>
+
+            <label>What do you want to say?</label>
+            <textarea name="forumText" class="form-control"/></textarea>
+
+  </fieldset>
             <input type="submit" value="submit"/>
         </form>
 

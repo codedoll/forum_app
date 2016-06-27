@@ -1,4 +1,8 @@
         <% include ../partials/head %>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+
+        <script   src="https://code.jquery.com/jquery-3.0.0.js"   integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="   crossorigin="anonymous"></script>
+        <script type="text/javascript" src="app.js"></script>
     <title></title>
 </head>
 
@@ -13,7 +17,8 @@
         <br>
         <% var noDash = userData[i].title %>
         <% var addDash = noDash.replace(/\s+/g, '_') %>
-        <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a> by <%= userData[i].username %>
+        <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a> by <%= userData[i].username %>,  
+        <span class = "forumDate"><%= userData[i].forumDate %></span>
      <% } %>
 </body>
 
