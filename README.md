@@ -47,5 +47,9 @@ Advanced features
 
 Technologies used
 --------------------------------
-
+- Javascript
+- Packages I learned about:
+	 - momentjs http://momentjs.com/
+	 - sanitizehtml https://www.npmjs.com/package/sanitize-html
+	 - made a middleware to check for session validity
  
