@@ -106,11 +106,13 @@ app.post('/login', function(req, res) {
         if (foundUser === null) {
             res.send("wrong login")
         } else if (foundUser.username === req.body.username) {
+            
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
 
                 req.session.username = req.body.username;
                 res.redirect("/")
             }
+
             else {
                 res.send("wrong password")
             }

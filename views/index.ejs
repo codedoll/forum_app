@@ -10,8 +10,10 @@
 <a href="/forum">go to your topics</a>
 <br>
 <% for (var i = 0; i < forumData.length; i++) { %>
-<br>
-	<%=  forumData[i].title %>  by <%= forumData[i].username %>
+<br> 
+<% var noDash = forumData[i].title %>
+<% var addDash = noDash.replace(/\s+/g, '_') %>
+        <a href="forum/topics/<%= addDash %>"><%=  forumData[i].title %> </a> by <%= forumData[i].username %>
 <% } %>
 <%=  forumData.length %>
 
