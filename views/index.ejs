@@ -4,9 +4,16 @@
 
 </head>
 <body>
+        <% include ../views/partials/navbar %>
 
 <%= foundUser.username %>
 <a href="/forum">go to your topics</a>
+<br>
+<% for (var i = 0; i < forumData.length; i++) { %>
+<br>
+	<%=  forumData[i].title %>  by <%= forumData[i].username %>
+<% } %>
+<%=  forumData.length %>
 
 </body>
 </html>

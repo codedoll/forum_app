@@ -67,16 +67,7 @@ app.get('/login', function(req, res) {
 })
 
 
-app.get('/:id', validate, function(req, res) {
-    if (req.session.username === req.params.id) {
-            User.findOne({ username: req.params.id }, function(err, foundUser) {
-                res.render('index.ejs', {
-                    username: req.session.username,
-                    foundUser: foundUser
-                })
-            })
-}
-})
+
 
 
 app.post('/login', function(req, res) {
@@ -91,12 +82,28 @@ app.post('/login', function(req, res) {
 })
 
 
-app.get('/:id/logout', function(req, res) {
+app.get('/logout', function(req, res) {
     req.session.destroy();
     res.send("logout success!");
 });
 
 
+
+app.get('/:id', validate, function(req, res) {
+    if (req.session.username === req.params.id) {
+                        Forum.find(function(err, forumData) {
+
+            User.findOne({ username: req.params.id }, function(err, foundUser) {
+
+                res.render('index.ejs', {
+                    forumData : forumData,
+                    username: req.session.username,
+                    foundUser: foundUser
+                })
+            })
+                 })
+}
+})
 
 
 mongoose.connection.once('open', function() {
