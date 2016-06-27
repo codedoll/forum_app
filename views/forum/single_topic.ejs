@@ -8,7 +8,7 @@
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">
                     <input type="hidden" name="forumID" value="<%= userData.id %>">
-                    <input type="hidden" name="forumDate" value="<%= dateNow %>"> Comment:
+                    <input type="hidden" name="commentDate" value="<%= dateNow %>"> Comment:
                     <br>
                     <textarea name="commentText" /></textarea>
                     <br>
@@ -16,7 +16,7 @@
                 </form>
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
-                            <br> by <span class="commentAuthor"><%= commentData[i].username %></span>, <%= fromNow %>
+                            <br> by <span class="commentAuthor"><%= commentData[i].username %></span>, <%= commentData[i].commentDate %>
                              <br>
                             <%= commentData[i].commentText %>
                         <% } %>
