@@ -2,11 +2,15 @@ p {
 	white-space: pre; 
 }
 
+
+#allTopics {
+	padding: 3%;
+}
+
 .topicTitle {
 	display: inline-block;
 	width: 40%;
 }
-
 
 .topicAuthor {
 	display: inline-block;
