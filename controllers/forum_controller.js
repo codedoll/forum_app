@@ -29,7 +29,7 @@ router.post('/', function(req, res) {
     var sessionName = req.session.username;
 
     Forum.findOne({ '_id': req.body.forumID }, function(err, forumData) {
-        console.log(forumData);
+        // console.log(forumData);
         Comment.create(req.body, function(err, commentData) {
             forumData.comment.push(forumData.id)
             commentData.save(function(err) {
@@ -92,8 +92,8 @@ router.get('/topics/:id', validate, function(req, res) {
 
 
                 for (var i = 0; i < commentData.length; i++) {
-                    console.log(commentData[i].commentText)
-                    console.log(marked(commentData[i].commentText))
+                    // console.log(commentData[i].commentText)
+                    // console.log(marked(commentData[i].commentText))
                     var markedComment = marked(commentData[i].commentText)
                 }
 
