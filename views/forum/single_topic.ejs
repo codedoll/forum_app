@@ -1,6 +1,13 @@
         <% include ../partials/head %>
+<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
+<script type="text/javascript" src="../../app.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
+
 <body>
 <button><a href="../logout">logout</a></button>
+
+
 <br>    Title:
     <%= userData.title %>
         <br> Body:
@@ -10,7 +17,7 @@
                     <input type="hidden" name="forumID" value="<%= userData.id %>">
                     <input type="hidden" name="commentDate" value="<%= dateNow %>"> Comment:
                     <br>
-                    <textarea name="commentText" /></textarea>
+                    <textarea name="commentText" class="message" id="MyID"/></textarea>
                     <br>
                     <input type="submit" value="submit" />
                 </form>

@@ -1,6 +1,6 @@
 $(function() {
 // Create a new moment object
-
+var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
 
 var forumL = $('.forumDate')

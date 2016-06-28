@@ -6,6 +6,9 @@ p {
 #allTopics {
 	padding: 3%;
 }
+#MyID {
+width: 200px;
+}
 
 .topicTitle {
 	display: inline-block;
