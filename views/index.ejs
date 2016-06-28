@@ -11,16 +11,28 @@
         <% include ../views/partials/navbar %>
             <%= foundUser.username %> <a href="/forum">go to your topics</a>
                 <br>
+        <section id= "allTopics">
+
                 <% for (var i = 0; i < forumData.length; i++) { %>
-                    <br>
-                           <% var noDash = forumData[i].title %>
-        <% var addDash = noDash.replace(/\s+/g, '_') %>
-                        <a href="forum/topics/<%= addDash %>">
-                            <%=  forumData[i].title %>
-                        </a> by
-                        <%= forumData[i].username %> on
-                            <span class="forumDate"><%= forumData[i].forumDate %></span>
-                            <% } %>
+                <div class="topicHolder">
+	                <div class = "topicTitle">    
+	                    <% var noDash = forumData[i].title %>
+	                    <% var addDash = noDash.replace(/\s+/g, '_') %>
+	                    <a href="forum/topics/<%= addDash %>"><%=  forumData[i].title %></a> 
+					</div>
+                
+	                <div class = "topicAuthor">    
+	                    <%= forumData[i].username %>
+					</div>
+
+	                <div class = "topicDate">    
+	                    <span class="forumDate"><%= forumData[i].forumDate %></span>
+	                </div>
+				</div>
+                    
+        <% } %>
+
+        </section>                        
     </body>
 
     </html>
