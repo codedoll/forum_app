@@ -10,10 +10,13 @@ for (var i = 0; i < forumL.length; i++) {
 
 
 	var getDatePosted = $(forumL[i]).html();
-	var showDatePretty = moment(getDatePosted, "YYYY-MM-DD HH:mm").format("MM-DD-YY HH:mm")
+	var showDatePretty = moment(getDatePosted, "YYYY-MM-DD HH:mm").format("MMMM Do YY")
+	if (showDatePretty === moment().format("MMMM Do YY")){
+		showDatePretty = "today"
+	}
 	var showRelativeTime = moment(getDatePosted, "YYYY-MM-DD HH:mm").fromNow()
 	
-	$(forumL[i]).html(`${showRelativeTime}`)
+	$(forumL[i]).html(`${showRelativeTime}, ${showDatePretty}`)
     // console.log(forumL[i])
 
 }

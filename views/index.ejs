@@ -1,24 +1,26 @@
-        <% include ../views/partials/head %>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+<% include ../views/partials/head %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <title>Welcome back
+        <%= foundUser.username %>
+    </title>
+    </head>
 
-        <script   src="https://code.jquery.com/jquery-3.0.0.js"   integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="   crossorigin="anonymous"></script>
-        <script type="text/javascript" src="app.js"></script>
-	<title>Welcome back <%= foundUser.username %> </title>
-
-</head>
-<body>
+    <body>
         <% include ../views/partials/navbar %>
+            <%= foundUser.username %>
+                <a href="/forum">go to your topics</a>
+                <br>
+                <% for (var i = 0; i < forumData.length; i++) { %>
+                    <br>
+                    <%= forumData[i].title %>
+                        <a href="forum/topics/<%= forumData[i].title %>">
+                            <%=  forumData[i].title %>
+                        </a> by
+                        <%= forumData[i].username %> on
+                            <span class="forumDate"><%= forumData[i].forumDate %></span>
+                            <% } %>
+    </body>
 
-<%= foundUser.username %>
-<a href="/forum">go to your topics</a>
-<br>
-<% for (var i = 0; i < forumData.length; i++) { %>
-<br> 
-<% var noDash = forumData[i].title %>
-<% var addDash = noDash.replace(/\s+/g, '_') %>
-        <a href="forum/topics/<%= addDash %>"><%=  forumData[i].title %> </a> by <%= forumData[i].username %> on 
-        <span class = "forumDate"><%= forumData[i].forumDate %></span>
-<% } %>
-
-</body>
-</html>
+    </html>
