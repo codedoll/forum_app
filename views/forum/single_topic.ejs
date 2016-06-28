@@ -12,11 +12,11 @@
 <body>
 <button><a href="../logout">logout</a></button>
 
+   <div id= "titleTextDiv"><span class="titleText"> <%= userData.title %></span></div>
+    <div id= "commentTextDiv"><span class="aCommentText"> <%= userData.forumText %></span></div>
+        
 
-<br>    Title:
-    <%= userData.title %>
-        <br> Body:
-        <%= userData.forumText %>
+
         <div id="commentsHolder">
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">

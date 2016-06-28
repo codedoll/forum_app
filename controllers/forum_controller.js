@@ -84,18 +84,19 @@ router.get('/topics/:id', validate, function(req, res) {
 
     Forum.findOne({ "title": address }, function(err, userData) {
         var topicID = userData.id
-
+// if (userData.comment.length === 0) {
+//     res.render("./forum/single_topic.ejs")
+// }
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
-                console.log(commentData.length)
-                console.log(commentData[0].commentText)
+
 
                 for (var i = 0; i < commentData.length; i++) {
                     console.log(commentData[i].commentText)
                     console.log(marked(commentData[i].commentText))
                     var markedComment = marked(commentData[i].commentText)
                 }
-                
+
             res.render("./forum/single_topic.ejs", {
                 dateNow: dateNow,
                 sessionName: req.session.username,
