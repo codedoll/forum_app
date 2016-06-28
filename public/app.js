@@ -20,6 +20,19 @@ function momentsComments() {
 	        if (showDatePretty === moment().format("MMMM Do YY")) {
 	            showDatePretty = "today"
 	        }
+	        var hourInt = parseFloat(moment().format("HH"))
+	        if ( hourInt < 11) {
+	        	$('#greeterScript').html("Good morning, ")
+	        }
+	        else {
+	        	$('#greeterScript').html("Good afternoon, ")
+
+	        }
+
+	        // console.log($('#greeterScript').html());
+	        console.log(parseFloat(moment().format("HH:mm")));
+	       	console.log(typeof parseFloat(moment().format("HH:mm")));
+
         
         var showRelativeTime = moment(getDatePosted, "YYYY-MM-DD HH:mm").fromNow()
 

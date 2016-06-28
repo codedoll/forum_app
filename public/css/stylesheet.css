@@ -28,7 +28,7 @@ width: 200px;
 
 .topicTitle {
 	display: inline-block;
-	width: 40%;
+	width: 50%;
 }
 
 .topicAuthor {
@@ -36,7 +36,7 @@ width: 200px;
 	width: 15%;
 }
 
- .topicDate {
+.topicDate {
 	display: inline-block;
 	width: 25%;
 }
@@ -47,6 +47,12 @@ width: 200px;
 
 .topicHolder:nth-child(odd) {
 	background: #E8E8E8
+}
+
+#formHolder {
+    width: 80%;
+	padding: 0 10%;
+    margin: 0 0 2% 0;
 }
 
 

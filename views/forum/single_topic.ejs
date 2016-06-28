@@ -18,7 +18,7 @@
         
 
 
-        <div id="commentsHolder">
+            <div id="formHolder"> 
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">
                     <input type="hidden" name="forumID" value="<%= userData.id %>">
@@ -28,6 +28,9 @@
                     <br>
                     <input type="submit" value="submit" />
                 </form>
+            </div>
+                    <div id="commentsHolder">
+
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
 
