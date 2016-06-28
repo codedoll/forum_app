@@ -3,6 +3,7 @@ var session = require('express-session');
 var router = express.Router();
 var mongoose = require('mongoose')
 var moment = require('moment');
+var marked = require('marked');
 
 var User = require('../models/user_model.js')
 var Forum = require('../models/forum_model.js')
@@ -86,13 +87,23 @@ router.get('/topics/:id', validate, function(req, res) {
 
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
+                console.log(commentData.length)
+                console.log(commentData[0].commentText)
 
+                for (var i = 0; i < commentData.length; i++) {
+                    console.log(commentData[i].commentText)
+                    console.log(marked(commentData[i].commentText))
+                    var markedComment = marked(commentData[i].commentText)
+                }
+                
             res.render("./forum/single_topic.ejs", {
                 dateNow: dateNow,
                 sessionName: req.session.username,
                 userData: userData,
-                commentData: commentData
+                commentData: commentData,
+                markedComment : markedComment
             })
+
 
         })
 

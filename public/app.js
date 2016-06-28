@@ -2,12 +2,23 @@ $(function() {
 // Create a new moment object
 var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
+var getComment = $('.commentText')
+for (var i = 0; i < getComment.length; i++) {
+	console.log($(getComment[i]))
+	var A = $(getComment[i])
+	var B = $(A).html()
+	var C = marked(B)
+	// console.log($(A).html())
+	// console.log(typeof B)
+	// console.log(marked(B));
+
+	$(getComment[i]).html(`${C}`)
+
+}
+
 
 var forumL = $('.forumDate')
 for (var i = 0; i < forumL.length; i++) {
-
- // var dateNow = moment().format("YYYY-MM-DD HH:mm");
-
 
 	var getDatePosted = $(forumL[i]).html();
 	var showDatePretty = moment(getDatePosted, "YYYY-MM-DD HH:mm").format("MMMM Do YY")
@@ -17,7 +28,6 @@ for (var i = 0; i < forumL.length; i++) {
 	var showRelativeTime = moment(getDatePosted, "YYYY-MM-DD HH:mm").fromNow()
 	
 	$(forumL[i]).html(`${showRelativeTime}, ${showDatePretty}`)
-    // console.log(forumL[i])
 
 }
 

@@ -4,7 +4,17 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
-
+var marked = require('marked');
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  gfm: true,
+  tables: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: true,
+  smartLists: true,
+  smartypants: false
+});
 var app = express();
 
 var User = require('./models/user_model.js')

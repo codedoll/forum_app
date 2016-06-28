@@ -1,7 +1,11 @@
         <% include ../partials/head %>
 <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
+  <script src="../../marked.js"></script>
+
 <script type="text/javascript" src="../../app.js"></script>
+
+
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
 
 <body>
@@ -24,6 +28,7 @@
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
                             <br> by <span class="commentAuthor"><%= commentData[i].username %></span>,  <span class = "commentDate"><%= commentData[i].commentDate %></span>
+                            <%= markedComment %>
                              <br>
                            <span class="commentText"> <%= commentData[i].commentText %> </span>
                         <% } %>
