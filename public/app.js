@@ -17,13 +17,12 @@ function simpleGreeting() {
     if (hourInt < 11) {
         $('#greeterScript').html("Good morning, ")
     } 
-
-    else {
+    else if (hourInt > 11 && hourInt < 17) {
         $('#greeterScript').html("Good afternoon, ")
     }
-    // // console.log($('#greeterScript').html());
-    // console.log(parseFloat(moment().format("HH:mm")));
-    // console.log(typeof parseFloat(moment().format("HH:mm")));
+    else {
+        $('#greeterScript').html("Good evening, ")
+    }
 }
 
 
@@ -56,7 +55,7 @@ function momentsComments() {
     for (var i = 0; i < commentL.length; i++) {
 
         var getDatePostedComment = $(commentL[i]).html();
-        var showDatePretty = moment(getDatePostedComment, "YYYY-MM-DD HH:mm").format("MMMM Do YY");
+        var showDatePretty = moment(getDatePostedComment, "YYYY-MM-DD HH:mm").format("MMMM Do");
 
         if (showDatePretty === moment().format("MMMM Do YY")) {
             showDatePretty = "today"

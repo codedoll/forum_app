@@ -1,0 +1,39 @@
+<% include ../partials/head %>
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
+    <script src="marked.js"></script>
+    <script type="text/javascript" src="/app.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
+      <link rel="stylesheet" href="/css/bootstrap.css">
+
+    <link rel="stylesheet" href="../../css/stylesheet.css">
+    <body>
+        <h1>Edit Post</h1>
+<%= forumData.forumText %>
+<%= forumData.id %>
+        <!-- <form action="/" method="POST"> -->
+        <form action="/forum/topics/<%= reqID %>?_method=PUT" method="POST">
+          <fieldset class="form-group">
+            <label>Post title</label>
+            <input type="text" name="title" value="<%= forumData.title %>" class="form-control" readonly="readonly"/>
+            <br/>
+            
+            <input type="hidden" name="username" value="<%= forumData.username %>" class = "form-control">
+            <br/>
+
+            <input type="text" name="forumDate" value="<%= dateNow %>" class = "form-control" readonly="readonly">
+             <br/>
+
+            <label>What do you want to say?</label>
+            <textarea name="forumText"  class="message" id="MyID""/><%= forumData.forumText %></textarea>
+
+  </fieldset>
+            <input type="submit" value="submit"/>
+        </form>
+
+    </body>
+</html>
+
+</body>
+</html>

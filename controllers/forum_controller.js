@@ -67,7 +67,7 @@ router.post('/post', validate, function(req, res) {
 
                 var noDash = req.body.title
                 var addDash = noDash.replace(/\s+/g, '_')
-                res.redirect('/forum/topics/' + addDash)
+                res.redirect('/')
             })
 
         })
@@ -84,25 +84,25 @@ router.get('/topics/:id', validate, function(req, res) {
 
     Forum.findOne({ "title": address }, function(err, userData) {
         var topicID = userData.id
-// if (userData.comment.length === 0) {
-//     res.render("./forum/single_topic.ejs")
-// }
+        // var sessionTitleID = userData.id
+
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
 
                 for (var i = 0; i < commentData.length; i++) {
-                    // console.log(commentData[i].commentText)
-                    // console.log(marked(commentData[i].commentText))
                     var markedComment = marked(commentData[i].commentText)
                 }
 
+            console.log(userData.id);
+            req.session.topicID = userData.id;
             res.render("./forum/single_topic.ejs", {
                 dateNow: dateNow,
                 sessionName: req.session.username,
                 userData: userData,
                 commentData: commentData,
-                markedComment : markedComment
+                markedComment : markedComment,
+                currentTopic : req.params.id
             })
 
 
@@ -111,6 +111,63 @@ router.get('/topics/:id', validate, function(req, res) {
     })
 
 })
+
+
+
+
+//edit page
+// router.get('/:id/edit', function(req, res){
+//  Todo.findById(req.params.id, function(err, todo){
+//    res.render('items/edit.html.ejs', {
+//      data: todo
+//    })
+//  });
+// })
+
+// router.put('/:id', function(req, res){
+//  Todo.findByIdAndUpdate(
+//    req.params.id, 
+//    req.body,
+//    { new : true }, //data will now reflect model AFTER update
+//    function(err, data){
+//      res.redirect('/items');
+//  });
+// });
+
+
+//EDIT TOPICS
+router.get('/topics/:id/edit', validate, function(req, res) {
+    var reqID = req.params.id;
+    var addSpace = reqID.replace(/_/g, ' ')
+    
+    var dateNow = moment().format("YYYY-MM-DD HH:mm");
+
+    Forum.findById(req.session.topicID, function(err, forumData) {
+        res.render("./forum/edit_post.ejs", {
+            forumData: forumData,
+            reqID : reqID,
+            dateNow : dateNow
+        })
+    })
+})
+
+router.put('/topics/:id', function(req, res) {
+
+    Forum.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    {new : true},
+    function (err, data) {
+        res.redirect("/")
+    })
+});
+
+//EDIT ROUTE END
+
+
+
+
+
 
 router.get('/logout', function(req, res) {
     req.session.destroy();

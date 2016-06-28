@@ -5,6 +5,8 @@ var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
 var marked = require('marked');
+var methodOverride = require('method-override');
+
 marked.setOptions({
   renderer: new marked.Renderer(),
   gfm: true,
@@ -23,6 +25,7 @@ var Forum = require('./models/forum_model.js')
 
 mongoose.connect('mongodb://localhost:27017/forumProj');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(methodOverride('_method'));
 
 // app.set('views', path.join(__dirname, 'packages/Module1/views'));
 

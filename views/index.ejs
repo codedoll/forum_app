@@ -11,7 +11,15 @@
 <button id = "logoutButton" class="buttonsOnTop"><a href="./logout">logout</a></button>
         <div id ="upperHolder">
             <h1><span id="greeterScript">Hi</span> <%= foundUser.username %>!</h1>
-            <h2>  <a href="/forum">see all your topics</a> </h2>
+
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum" aria-expanded="false" aria-controls="collapseExample">
+  see all your topics
+</a>
+        <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum/post" aria-expanded="false" aria-controls="collapseExample">
+  make a new post
+</a>
+
+
                 </div>
         <section id= "allTopics">
 
