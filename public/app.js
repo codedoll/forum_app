@@ -4,7 +4,7 @@ var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
 var getComment = $('.commentText')
 for (var i = 0; i < getComment.length; i++) {
-	console.log($(getComment[i]))
+	// console.log($(getComment[i]))
 	var A = $(getComment[i])
 	var B = $(A).html()
 	var C = marked(B)

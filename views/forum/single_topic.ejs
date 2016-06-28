@@ -7,6 +7,7 @@
 
 
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
+<link rel="stylesheet" href="../../css/stylesheet.css">
 
 <body>
 <button><a href="../logout">logout</a></button>
@@ -16,6 +17,7 @@
     <%= userData.title %>
         <br> Body:
         <%= userData.forumText %>
+        <div id="commentsHolder">
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">
                     <input type="hidden" name="forumID" value="<%= userData.id %>">
@@ -28,11 +30,11 @@
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
                             <br> by <span class="commentAuthor"><%= commentData[i].username %></span>,  <span class = "commentDate"><%= commentData[i].commentDate %></span>
-                            <%= markedComment %>
                              <br>
                            <span class="commentText"> <%= commentData[i].commentText %> </span>
                         <% } %>
                     <% } %>
+        </div>
 </body>
 
 </html>
