@@ -51,5 +51,7 @@ Technologies used
 - Packages I learned about:
 	 - momentjs http://momentjs.com/
 	 - sanitizehtml https://www.npmjs.com/package/sanitize-html
+	 - marked https://github.com/chjj/marked
+	 - simpleMDE https://github.com/NextStepWebs/simplemde-markdown-editor
 	 - made a middleware to check for session validity
- 
+
