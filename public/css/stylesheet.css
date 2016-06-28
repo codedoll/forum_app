@@ -11,12 +11,10 @@ p {
 
 .titleText {
     font-size: 2.5em;
-    margin: 10%;
 }
 
 .postText {
     font-size: 1.5em;
-    margin: 10%;
 }
 
 #allTopics {
@@ -49,13 +47,18 @@ width: 200px;
 	background: #E8E8E8
 }
 
+#upperHolder {
+    width: 80%;
+	padding: 0 10%;
+    margin: 0 0 2% 0;	
+}
 #formHolder {
     width: 80%;
 	padding: 0 10%;
     margin: 0 0 2% 0;
 }
 
-
+/*/created with help from *http://button.csscook.com/*/
 input[type=submit] {
  	border : solid 1px #e6e6e6;
 	border-radius : 3px;
