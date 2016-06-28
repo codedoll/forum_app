@@ -13,13 +13,30 @@
 <br>
     Your topics are:
     <br>
-    <% for (var i = 0; i <  userData.length; i++) { %>
-        <br>
+
+     <section id= "allTopics">
+       <% for (var i = 0; i <  userData.length; i++) { %>
+        
         <% var noDash = userData[i].title %>
         <% var addDash = noDash.replace(/\s+/g, '_') %>
-        <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a> by <%= userData[i].username %>,  
-        <span class = "forumDate"><%= userData[i].forumDate %></span>
+       
+       <div class="topicHolder">
+           <div class = "topicTitle">  
+            <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a>
+            </div>
+                    
+           <div class = "topicAuthor">    
+           <%= userData[i].username %>
+            </div>
+
+            <div class = "topicDate">    
+            <span class = "forumDate"><%= userData[i].forumDate %></span>
+            </div>
+
+        </div>
      <% } %>
+
+     </section>
 </body>
 
 </html>
