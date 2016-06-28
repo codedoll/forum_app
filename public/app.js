@@ -8,6 +8,7 @@ $(function() {
     var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
     markedSingleTopic();
+
 });
 
 

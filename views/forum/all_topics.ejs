@@ -8,11 +8,11 @@
 
 <body>
         <% include ../partials/navbar %>
+<div id="allTopicsUpperHolder">
 
-<a href="forum/post">Post a new topic</a>
-<br>
-    Your topics are:
-    <br>
+<h1><a href="forum/post">Post a new topic</a></h1>
+<span>    Your topics are:</span>
+</div>
 
      <section id= "allTopics">
        <% for (var i = 0; i <  userData.length; i++) { %>

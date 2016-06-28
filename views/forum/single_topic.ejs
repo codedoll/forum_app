@@ -1,21 +1,21 @@
-        <% include ../partials/head %>
-<script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+<% include ../partials/head %>
+    <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
+    <script src="../../marked.js"></script>
+    <script type="text/javascript" src="../../app.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
+      <link rel="stylesheet" href="../../css/bootstrap.css">
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
-  <script src="../../marked.js"></script>
-<script type="text/javascript" src="../../app.js"></script>
+    <link rel="stylesheet" href="../../css/stylesheet.css">
 
+    <body>
+        <button id = "logoutButton" class="buttonsOnTop"><a href="../logout">logout</a></button>
+        <div id="singleTopicUpperHolder">
+            <div id="titleTextDiv"><span class="titleText"> <%= userData.title %></span></div>
+            <div id="postTextDiv"><span class="postText" id="singleTopicTitle"> <%= userData.forumText %></span></div>
+        </div>
 
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
-<link rel="stylesheet" href="../../css/stylesheet.css">
-
-<body>
-<button><a href="../logout">logout</a></button>
-<div id = "upperHolder">
-   <div id= "titleTextDiv"><span class="titleText"> <%= userData.title %></span></div>
-    <div id= "postTextDiv"><span class="postText" id="singleTopicTitle"> <%= userData.forumText %></span></div>
- </div>       
 
 
             <div id="formHolder"> 

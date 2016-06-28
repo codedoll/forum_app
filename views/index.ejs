@@ -2,16 +2,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="app.js"></script>
-    <title>Welcome back
-        <%= foundUser.username %>
-    </title>
+
+    <title>Welcome back <%= foundUser.username %> </title>
+    
     </head>
 
     <body>
-        <% include ../views/partials/navbar %>
+<button id = "logoutButton" class="buttonsOnTop"><a href="./logout">logout</a></button>
+        <div id ="upperHolder">
             <h1><span id="greeterScript">Hi</span> <%= foundUser.username %>!</h1>
             <h2>  <a href="/forum">see all your topics</a> </h2>
-                <br>
+                </div>
         <section id= "allTopics">
 
                 <% for (var i = 0; i < forumData.length; i++) { %>

@@ -47,10 +47,20 @@ width: 200px;
 .topicHolder:nth-child(odd) {
 	background: #E8E8E8
 }
+#allTopicsUpperHolder {
+    width: 80%;
+	padding: 0 3%;
+}
+
+#singleTopicUpperHolder {
+    width: 80%;
+	padding: 0 10%;
+    margin: 0 0 2% 0;	
+}
 
 #upperHolder {
     width: 80%;
-	padding: 0 10%;
+	padding: 0 3%;
     margin: 0 0 2% 0;	
 }
 #formHolder {
@@ -77,4 +87,30 @@ input[type=submit] {
 	background : -ms-linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
 	background : linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
 
+}
+
+
+.buttonsOnTop {
+	font-weight: bold;
+    margin: 1em 2em;
+    padding: .5em 3em;
+    border : solid 1px #e6e6e6;
+ 	border-radius: 3px;
+ 	background : #ffffff;
+	background : -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(49%,#f1f1f1), color-stop(51%,#e1e1e1), color-stop(100%,#f6f6f6));
+	background : -moz-linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
+	background : -webkit-linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
+	background : -ms-linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
+	background : linear-gradient(top, #ffffff 0%, #f1f1f1 49%, #e1e1e1 51%, #f6f6f6 100%);
+}
+
+
+.CodeMirror-scroll {
+    min-height: 213px;
+}
+
+
+.CodeMirror {
+    height: auto;
+    min-height: 256px;
 }
