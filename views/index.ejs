@@ -2,22 +2,24 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="app.js"></script>
-
-    <title>Welcome back <%= foundUser.username %> </title>
-    
+    <title>Welcome back
+        <%= foundUser.username %>
+    </title>
     </head>
 
     <body>
-<a href="./logout"><button id = "logoutButton" class="buttonsOnTop">logout</button></a>
-        <div id ="upperHolder">
+        <a href="./logout">
+            <button id="logoutButton" class="buttonsOnTop">logout</button>
+        </a>
+        <div id="upperHolder">
             <h1><span id="greeterScript">Hi</span> <%= foundUser.username %>!</h1>
-
-        <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum" aria-expanded="false" aria-controls="collapseExample">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum" aria-expanded="false" aria-controls="collapseExample">
   see all your topics
 </a>
-        <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum/post" aria-expanded="false" aria-controls="collapseExample">
+            <a class="btn btn-primary" role="button" data-toggle="collapse" href="/forum/post" aria-expanded="false" aria-controls="collapseExample">
   make a new post
 </a>
+
 
 
                 </div>

@@ -12,29 +12,30 @@
 
 <html>
     <body>
-        <h1>Write a topic</h1>
-            <div id="formHolder"> 
 
-You are logged in as <%= sessionName %>
-        <form action="/forum/post" method="POST">
-          <fieldset class="form-group">
-            <label>Post title</label>
-            <input type="text" name="title" placeholder="" class="form-control"/>
-            <br/>
-            
-            <input type="hidden" name="username" value="<%= sessionName %>" class = "form-control">
-            <br/>
 
-            <input type="text" name="forumDate" value="<%= dateNow %>" class = "form-control">
-             <br/>
+        <button id = "logoutButton" class="buttonsOnTop"><a href="../logout">logout</a></button>
+        <button id = "backToMainTopics" class="buttonsOnTop"><a href="/">backToMainTopics</a></button>
 
-            <label>What do you want to say?</label>
-            <textarea name="forumText" class="form-control"/></textarea>
 
-  </fieldset>
-            <input type="submit" value="submit"/>
+      <div id="formHolder">
+          <h1>Write a topic</h1> You are logged in as
+          <%= sessionName %>
+            <form action="/forum/post" method="POST">
+              <fieldset class="form-group">
+                  <label>Post title</label>
+                  <input type="text" name="title" placeholder="" class="form-control" />
+                  <br/>
+                  <input type="hidden" name="username" value="<%= sessionName %>" class="form-control">
+                  <br/>
+                  <input type="text" name="forumDate" value="<%= dateNow %>" class="form-control">
+                  <br/>
+                  <label>What do you want to say?</label>
+                  <textarea name="forumText" class="form-control" /></textarea>
+              </fieldset>
+              <input type="submit" value="submit" />
         </form>
-        </div>
+</div>
 
     </body>
 </html>
