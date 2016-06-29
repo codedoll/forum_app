@@ -114,3 +114,10 @@ input[type=submit] {
     height: auto;
     min-height: 256px;
 }
+
+#loginDiv {
+	transform: translateY(100%);
+	top: 50%;
+	margin: auto;
+    width: 50%;
+}

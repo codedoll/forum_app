@@ -12,7 +12,8 @@
 
 <html>
     <body>
-        <h1>Post forum</h1>
+        <h1>Write a topic</h1>
+            <div id="formHolder"> 
 
 You are logged in as <%= sessionName %>
         <form action="/forum/post" method="POST">
@@ -33,6 +34,7 @@ You are logged in as <%= sessionName %>
   </fieldset>
             <input type="submit" value="submit"/>
         </form>
+        </div>
 
     </body>
 </html>
