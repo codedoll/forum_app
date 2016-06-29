@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
+var validate = require('express-jsonschema').validate;
 
 var methodOverride = require('method-override');
 var port = process.env.PORT || 3000
