@@ -116,12 +116,16 @@ input[type=submit] {
 }
 
 #loginDiv {
-	transform: translateY(100%);
-	top: 50%;
-	margin: auto;
+    transform: translateY(80%);
+    top: 50%;
+    margin: 0 35%;
     width: 50%;
 }
 
 img {
     max-height: 300px;
+}
+
+#registerHere {
+    margin: 3em 0;
 }
