@@ -4,22 +4,25 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
-var marked = require('marked');
+// var marked = require('marked');
 var methodOverride = require('method-override');
 var port = process.env.PORT || 3000
 var MONGODBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/forumProj'
 
 
-marked.setOptions({
-  renderer: new marked.Renderer(),
-  gfm: true,
-  tables: true,
-  breaks: false,
-  pedantic: false,
-  sanitize: true,
-  smartLists: true,
-  smartypants: false
-});
+// marked.setOptions({
+//   renderer: new marked.Renderer(),
+//   gfm: true,
+//   tables: true,
+//   breaks: false,
+//   pedantic: false,
+//   sanitize: true,
+//   smartLists: true,
+//   smartypants: false
+// });
+
+
+
 var app = express();
 
 var User = require('./models/user_model.js')
