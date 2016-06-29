@@ -1,6 +1,5 @@
 var mongoose = require('mongoose');
 var forumSchema = require('../models/forum_model.js').schema
-var validate = require('express-jsonschema').validate;
 
 var userSchema = mongoose.Schema({
     username: { type: String, required: true},
