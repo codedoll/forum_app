@@ -121,3 +121,7 @@ input[type=submit] {
 	margin: auto;
     width: 50%;
 }
+
+img {
+    max-height: 300px;
+}
