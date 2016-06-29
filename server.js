@@ -6,6 +6,9 @@ var moment = require('moment');
 var bcrypt = require('bcrypt');
 var marked = require('marked');
 var methodOverride = require('method-override');
+var port = process.env.PORT || 3000
+var MONGODBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/forumProj'
+
 
 marked.setOptions({
   renderer: new marked.Renderer(),
@@ -23,7 +26,7 @@ var User = require('./models/user_model.js')
 var Forum = require('./models/forum_model.js')
 
 
-mongoose.connect('mongodb://localhost:27017/forumProj');
+mongoose.connect(MONGODBURI);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
@@ -163,6 +166,6 @@ mongoose.connection.once('open', function() {
 })
 
 
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('listening');
 })
