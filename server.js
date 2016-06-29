@@ -4,24 +4,10 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
-// var marked = require('marked');
+
 var methodOverride = require('method-override');
 var port = process.env.PORT || 3000
 var MONGODBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/forumProj'
-
-
-// marked.setOptions({
-//   renderer: new marked.Renderer(),
-//   gfm: true,
-//   tables: true,
-//   breaks: false,
-//   pedantic: false,
-//   sanitize: true,
-//   smartLists: true,
-//   smartypants: false
-// });
-
-
 
 var app = express();
 
@@ -32,8 +18,6 @@ var Forum = require('./models/forum_model.js')
 mongoose.connect(MONGODBURI);
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-
-// app.set('views', path.join(__dirname, 'packages/Module1/views'));
 
 app.use(session({
     secret: "beagle",
@@ -72,9 +56,8 @@ app.post('/', validate, function(req, res) {
 
 app.get('/register', function(req, res) {
     if (req.session.username !== undefined) {
-                req.session.username = req.body.username
-
-        res.redirect("/");
+            req.session.username = req.body.username
+            res.redirect("/");
     } else {
         User.create(req.body, function(err, data) {
             res.render("user/user_register.ejs");
@@ -101,12 +84,9 @@ app.get('/register', function(req, res) {
 
 app.post('/register', function(req, res) {
         req.session.username = req.body.username
-        req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
-        console.log(req.body)
-        User.create(req.body, function(err, data) {
-                   res.redirect("/")
-                // req.session.username = req.body.username;
-                // res.redirect("/")
+        User.create(req.body, function() {
+                req.body.password = bcrypt.hashSync(req.body.password, bcrypt.genSaltSync(10));
+                res.redirect("/")
         })
     })
 
