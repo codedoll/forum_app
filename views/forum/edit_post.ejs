@@ -7,11 +7,14 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
       <link rel="stylesheet" href="/css/bootstrap.css">
 
-    <link rel="stylesheet" href="../../css/stylesheet.css">
+    <link rel="stylesheet" href="/css/stylesheet.css">
     <body>
+    <div id="formHolder">
+
         <h1>Edit Post</h1>
-<%= forumData.forumText %>
-<%= forumData.id %>
+
+            <%= forumData.forumText %>
+            <%= forumData.id %>
         <!-- <form action="/" method="POST"> -->
         <form action="/forum/topics/<%= reqID %>?_method=PUT" method="POST">
           <fieldset class="form-group">
@@ -31,7 +34,7 @@
   </fieldset>
             <input type="submit" value="submit"/>
         </form>
-
+</div>
     </body>
 </html>
 

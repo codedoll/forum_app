@@ -138,3 +138,9 @@ img {
     word-wrap: break-word;
     /* width: 100px; */
 }
+
+
+#editFormHolder {
+    width: 80%;
+    margin: 0 3%;
+}

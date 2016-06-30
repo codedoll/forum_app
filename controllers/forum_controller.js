@@ -137,12 +137,15 @@ router.get('/topics/:id', validate, function(req, res) {
 
 //EDIT TOPICS
 router.get('/topics/:id/edit', validate, function(req, res) {
+
     var reqID = req.params.id;
     var addSpace = reqID.replace(/_/g, ' ')
     
     var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
     Forum.findById(req.session.topicID, function(err, forumData) {
+        console.log(req.session.username);
+        console.log(forumData.username);
         res.render("./forum/edit_post.ejs", {
             forumData: forumData,
             reqID : reqID,
