@@ -4,8 +4,10 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var moment = require('moment');
 var bcrypt = require('bcrypt');
-var methodOverride = require('method-override');
 
+var methodOverride = require('method-override');
+var port = process.env.PORT || 3000
+var MONGODBURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/forumProj'
 var app = express();
 
 var User = require('./models/user_model.js')
@@ -152,6 +154,6 @@ mongoose.connection.once('open', function() {
 })
 
 
-app.listen(3000, function() {
+app.listen(port, function() {
     console.log('listening');
 })
