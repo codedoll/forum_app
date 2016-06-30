@@ -1,5 +1,5 @@
 p { 
-	white-space: pre; 
+	white-space: pre-wrap; 
 }
 
 #commentsHolder {
@@ -53,9 +53,9 @@ width: 200px;
 }
 
 #singleTopicUpperHolder {
-    width: 80%;
-	padding: 0 10%;
-    margin: 0 0 2% 0;	
+    width: 56%;
+    padding: 0 3%;
+    margin: 0 0 2% 0;
 }
 
 #upperHolder {
@@ -63,9 +63,10 @@ width: 200px;
 	padding: 0 3%;
     margin: 0 0 2% 0;	
 }
+
 #formHolder {
-    width: 80%;
-	padding: 0 10%;
+    width: 55%;
+    padding: 0 3%;
     margin: 0 0 2% 0;
 }
 
@@ -128,4 +129,12 @@ img {
 
 #registerHere {
     margin: 3em 0;
+}
+
+
+#titleTextDiv {
+    color: #607D8B;
+    white-space: nowrap;
+    word-wrap: break-word;
+    /* width: 100px; */
 }
