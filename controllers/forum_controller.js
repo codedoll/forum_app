@@ -15,9 +15,14 @@ var validate = require("../userValidate");
 router.get('/', validate, function(req, res) {
     var sessionName = req.session.username;
 
-    Forum.find({ "username": req.session.username }, function(err, userData) {
+    Forum.find({ "username": req.session.username }, function(err, forumData) {
+        var totalVotes = 0;
+        for (var i = 0; i <  forumData.length; i++) {
+            totalVotes = forumData[i].vote + totalVotes
+        }
         res.render("./forum/all_topics.ejs", {
-            userData: userData
+            forumData: forumData,
+            totalVotes : totalVotes
         })
 
     })
@@ -41,6 +46,33 @@ router.post('/', function(req, res) {
         })
     })
 })
+
+
+//ADD A VOTE
+
+router.put('/topics/vote/:id', function(req, res) {
+    Forum.findOne({ '_id': req.params.id }, function(err, forumData) {
+
+    Forum.find({ usersVotes: req.session.username }, function(err, foundVoters) {
+        console.log(foundVoters);
+        var curVote = forumData.vote;
+        forumData.vote = curVote + 1;
+        forumData.usersVotes.push(req.session.username);
+
+        forumData.save(function(err) {
+            if (err) {
+                console.error('ERROR!');
+            }
+            res.redirect("/")
+        });
+
+});
+
+
+    });
+
+});
+
 
 
 router.get('/post', validate, function(req, res) {
@@ -82,11 +114,8 @@ router.get('/topics/:id', validate, function(req, res) {
     var getID = req.params.id
     var address = getID.replace(/_/g, ' ')
 
-    Forum.findOne({ "title": address }, function(err, userData) {
-        var topicID = userData.id
-        console.log(req.session.username);
-        console.log(userData.username);
-        console.log(req.session.username === userData.username);
+    Forum.findOne({ "title": address }, function(err, forumData) {
+        var topicID = forumData.id
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
@@ -96,11 +125,11 @@ router.get('/topics/:id', validate, function(req, res) {
             }
 
             // console.log(userData.id);
-            req.session.topicID = userData.id;
+            req.session.topicID = forumData.id;
             res.render("./forum/single_topic.ejs", {
                 dateNow: dateNow,
                 sessionName: req.session.username,
-                userData: userData,
+                forumData: forumData,
                 commentData: commentData,
                 markedComment: markedComment,
                 currentTopic: req.params.id

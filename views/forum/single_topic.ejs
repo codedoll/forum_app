@@ -1,27 +1,35 @@
 <% include ../partials/head %>
     <script src="https://code.jquery.com/jquery-3.0.0.js" integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.12.0/moment.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
     <script src="../../marked.js"></script>
     <script type="text/javascript" src="../../app.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
-      <link rel="stylesheet" href="../../css/bootstrap.css">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
     <link rel="stylesheet" href="../../css/stylesheet.css">
 
     <body>
+    <% var forumID = forumData.id %>
         <button id = "logoutButton" class="buttonsOnTop"><a href="../logout">logout</a></button>
         <button id = "backToMainTopics" class="buttonsOnTop"><a href="/">see all topics</a></button>
  
-        <button id = "editTopicButton" class="buttonsOnTop"><a href="<%=userData.id%>/edit">edit topic</a></button>
+        <button id = "editTopicButton" class="buttonsOnTop"><a href="<%=forumData.id%>/edit">edit topic</a></button>
 
         <div id="singleTopicUpperHolder">
-            <div id="titleTextDiv"><span class="titleText"> <%= userData.title %></span></div>
-            <div id="postTextDiv"><span class="postText" id="singleTopicTitle"> <%= userData.forumText %></span></div>
+            <div id="titleTextDiv"><span class="titleText"> <%= forumData.title %></span></div>
+            <div id="postTextDiv"><span class="postText" id="singleTopicTitle"> <%= forumData.forumText %></span></div>
         </div>
-
+                
                <div id="commentsHolder">
+ <form action="/forum/topics/vote/<%= forumData.id %>?_method=PUT" method="POST">
+                             <input type="hidden" name="forumData.vote">
 
+                            <input id ="votebutton" type="submit" class="icon icon-search" value="click to vote:  <%= forumData.vote %>"/>
+
+
+                 </form>
                     <% if (commentData!== null) { %>
                         <% for (var i = 0; i <  commentData.length; i++) { %>
 
@@ -37,6 +45,8 @@
                                 <div class="topicDate">
                                         <span class="commentDate"><%= commentData[i].commentDate %></span>
                                 </div>
+
+                               
                             </div>
 
                         <% } %>
@@ -46,7 +56,7 @@
             <div id="formHolder"> 
                 <form action="/forum/" method="POST">
                     <input type="hidden" name="username" value="<%= sessionName %>">
-                    <input type="hidden" name="forumID" value="<%= userData.id %>">
+                    <input type="hidden" name="forumID" value="<%= forumData.id %>">
                     <input type="hidden" name="commentDate" value="<%= dateNow %>"> Comment:
                     <br>
                     <textarea name="commentText" class="message" id="MyID"/></textarea>

@@ -5,7 +5,9 @@ var forumSchema = mongoose.Schema({
     forumDate: String,
     forumText: String,
     username: String,
-    comment: []
+    comment: [],
+    vote: Number,
+    usersVotes: [],
 }, { strict: true})
 
 var Forum = mongoose.model('Forum', forumSchema);

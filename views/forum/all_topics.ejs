@@ -9,30 +9,34 @@
 <body>
         <% include ../partials/navbar %>
 <div id="allTopicsUpperHolder">
+<h4>You have <span class="totalVotes"><%= totalVotes %> votes </span>for the following topics: </h4>
 
-<h1><span>Your topics are:</span></h1>
 </div>
 
      <section id= "allTopics">
-       <% for (var i = 0; i <  userData.length; i++) { %>
+       <% for (var i = 0; i <  forumData.length; i++) { %>
         
-        <% var noDash = userData[i].title %>
+        <% var noDash = forumData[i].title %>
         <% var addDash = noDash.replace(/\s+/g, '_') %>
        
        <div class="topicHolder">
            <div class = "topicTitle">  
-            <a href="forum/topics/<%= addDash %>"><%= userData[i].title %></a>
+            <a href="forum/topics/<%= addDash %>"><%= forumData[i].title %></a>
             </div>
                     
            <div class = "topicAuthor">    
-           <%= userData[i].username %>
+           <%= forumData[i].username %>
             </div>
 
             <div class = "topicDate">    
-            <span class = "forumDate"><%= userData[i].forumDate %></span>
+            <span class = "forumDate"><%= forumData[i].forumDate %></span>
             </div>
 
-        </div>
+
+                    <div class = "topicVotes">    
+                        <span class="topicVote"><span class="votesLabel">votes</span> : <%= forumData[i].vote %></span>
+                    </div>
+                            </div>
      <% } %>
 
      </section>
