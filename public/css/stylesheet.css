@@ -2,11 +2,10 @@ p {
 	white-space: pre-wrap; 
 }
 
-#commentsHolder {
-    width: 80%;
-    /* align-items: center; */
-    display: block;
-    padding: 0 10%;
+#commentsHolder  {
+    width: 60%;
+    padding: 0 3%;
+    margin: 0 0 2% 0;
 }
 
 .titleText {

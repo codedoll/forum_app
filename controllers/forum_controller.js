@@ -91,9 +91,9 @@ router.get('/topics/:id', validate, function(req, res) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
 
-                for (var i = 0; i < commentData.length; i++) {
-                    var markedComment = marked(commentData[i].commentText)
-                }
+            for (var i = 0; i < commentData.length; i++) {
+                var markedComment = marked(commentData[i].commentText)
+            }
 
             // console.log(userData.id);
             req.session.topicID = userData.id;
@@ -102,8 +102,8 @@ router.get('/topics/:id', validate, function(req, res) {
                 sessionName: req.session.username,
                 userData: userData,
                 commentData: commentData,
-                markedComment : markedComment,
-                currentTopic : req.params.id
+                markedComment: markedComment,
+                currentTopic: req.params.id
             })
 
 
