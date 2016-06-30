@@ -26,12 +26,12 @@ width: 200px;
 
 .topicTitle {
 	display: inline-block;
-	width: 50%;
+	width: 60%;
 }
 
 .topicAuthor {
 	display: inline-block;
-	width: 15%;
+	width: 10%;
 }
 
 .topicDate {
