@@ -84,8 +84,9 @@ router.get('/topics/:id', validate, function(req, res) {
 
     Forum.findOne({ "title": address }, function(err, userData) {
         var topicID = userData.id
-        // var sessionTitleID = userData.id
-
+        console.log(req.session.username);
+        console.log(userData.username);
+        console.log(req.session.username === userData.username);
         Comment.find({ 'forumID': topicID }, function(err, commentData) {
             var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
@@ -94,7 +95,7 @@ router.get('/topics/:id', validate, function(req, res) {
                     var markedComment = marked(commentData[i].commentText)
                 }
 
-            console.log(userData.id);
+            // console.log(userData.id);
             req.session.topicID = userData.id;
             res.render("./forum/single_topic.ejs", {
                 dateNow: dateNow,
@@ -113,28 +114,6 @@ router.get('/topics/:id', validate, function(req, res) {
 })
 
 
-
-
-//edit page
-// router.get('/:id/edit', function(req, res){
-//  Todo.findById(req.params.id, function(err, todo){
-//    res.render('items/edit.html.ejs', {
-//      data: todo
-//    })
-//  });
-// })
-
-// router.put('/:id', function(req, res){
-//  Todo.findByIdAndUpdate(
-//    req.params.id, 
-//    req.body,
-//    { new : true }, //data will now reflect model AFTER update
-//    function(err, data){
-//      res.redirect('/items');
-//  });
-// });
-
-
 //EDIT TOPICS
 router.get('/topics/:id/edit', validate, function(req, res) {
 
@@ -144,8 +123,7 @@ router.get('/topics/:id/edit', validate, function(req, res) {
     var dateNow = moment().format("YYYY-MM-DD HH:mm");
 
     Forum.findById(req.session.topicID, function(err, forumData) {
-        console.log(req.session.username);
-        console.log(forumData.username);
+
         res.render("./forum/edit_post.ejs", {
             forumData: forumData,
             reqID : reqID,
