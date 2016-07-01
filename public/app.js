@@ -24,6 +24,7 @@ function simpleGreeting() {
     else {
         $('#greeterScript').html("Good evening, ")
     }
+    console.log(moment());
 }
 
 
