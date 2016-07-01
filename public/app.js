@@ -15,10 +15,10 @@ $(function() {
 
 function simpleGreeting() {
     var hourInt = parseFloat(moment().format("HH"))
-    if (hourInt < 11) {
+    if (hourInt < 12) {
         $('#greeterScript').html("Good morning, ")
     } 
-    else if (hourInt > 11 && hourInt < 17) {
+    else if (hourInt > 12 && hourInt < 17) {
         $('#greeterScript').html("Good afternoon, ")
     }
     else {
