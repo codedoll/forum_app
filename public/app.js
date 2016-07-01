@@ -1,13 +1,13 @@
 $(function() {
-    // console.log($('.topicHolder'));
+    console.log($('.topicHolder'));
 
     simpleGreeting();
     markedComments();
     momentsTopics();
     momentsComments();
-    $('#topicTitle').alphanum();
 
     var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
+    $('#topicTitle').alphanum();
 
     markedSingleTopic();
 });
