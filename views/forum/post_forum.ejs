@@ -5,6 +5,8 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.js"></script>
   <script src="../../marked.js"></script>
 <script type="text/javascript" src="../../app.js"></script>
+<script type="text/javascript" src="../../jquery.alphanum.js"></script>
+
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/simplemde/1.11.2/simplemde.min.css">
 <link rel="stylesheet" href="../../css/stylesheet.css">
 
@@ -25,7 +27,7 @@
             <form action="/forum/post" method="POST">
               <fieldset class="form-group">
                   <label>Post title</label>
-                  <input type="text" name="title" placeholder="" class="form-control" />
+                  <input type="text" name="title" placeholder="" class="form-control" id="topicTitle"/>
                   <br/>
                   <input type="hidden" name="username" value="<%= sessionName %>" class="form-control">
                   <br/>

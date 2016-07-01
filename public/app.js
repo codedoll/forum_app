@@ -1,5 +1,6 @@
 $(function() {
-    console.log($('.topicHolder'));
+    // console.log($('.topicHolder'));
+    $('#topicTitle').alphanum();
 
     simpleGreeting();
     markedComments();
