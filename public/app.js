@@ -1,11 +1,11 @@
 $(function() {
     // console.log($('.topicHolder'));
-    $('#topicTitle').alphanum();
 
     simpleGreeting();
     markedComments();
     momentsTopics();
     momentsComments();
+    $('#topicTitle').alphanum();
 
     var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
