@@ -59,3 +59,4 @@ Technologies used
 	 - jQuery Alphanum https://github.com/KevinSheedy/jquery.alphanum
 - Middleware I made myself
 	 - made a middleware to check for session validity
+
