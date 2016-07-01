@@ -55,5 +55,7 @@ Technologies used
 	 - sanitizehtml https://www.npmjs.com/package/sanitize-html
 	 - marked https://github.com/chjj/marked
 	 - simpleMDE https://github.com/NextStepWebs/simplemde-markdown-editor
+- jQuery
+	 - jQuery Alphanum https://github.com/KevinSheedy/jquery.alphanum
+- Middleware I made myself
 	 - made a middleware to check for session validity
-
