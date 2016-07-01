@@ -52,9 +52,7 @@ router.post('/', function(req, res) {
 
 router.put('/topics/vote/:id', function(req, res) {
     Forum.findOne({ '_id': req.params.id }, function(err, forumData) {
-
-    Forum.find({ usersVotes: req.session.username }, function(err, foundVoters) {
-        console.log(foundVoters);
+        // console.log(foundVoters);
         var curVote = forumData.vote;
         forumData.vote = curVote + 1;
         forumData.usersVotes.push(req.session.username);
@@ -65,8 +63,6 @@ router.put('/topics/vote/:id', function(req, res) {
             }
             res.redirect("/")
         });
-
-});
 
 
     });

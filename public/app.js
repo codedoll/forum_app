@@ -1,4 +1,5 @@
 $(function() {
+    console.log($('.topicHolder'));
 
     simpleGreeting();
     markedComments();
@@ -8,7 +9,6 @@ $(function() {
     var simplemde = new SimpleMDE({ element: $("#MyID")[0] });
 
     markedSingleTopic();
-    console.log($('#editTopicButton'));
 });
 
 
